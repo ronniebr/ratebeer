@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.2.5.1'
 
 group :development, :test do
   gem 'sqlite3'
@@ -15,7 +15,9 @@ group :production do
    gem 'rails_12factor'
 end
 
-ruby '2.0.0'
+ruby '2.3.0'
+
+gem 'bcrypt-ruby', '~> 3.1.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

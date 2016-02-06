@@ -1,10 +1,6 @@
 module RatingAverage
  	def average_rating
-		sum=0
-		ratings.each do |rating|
-			sum = sum + rating.score
-		end
-		avg = sum/ratings.count
-		return avg	
+		return 0 if ratings.empty?
+    	ratings.map{ |r| r.score }.sum / ratings.count.to_f
  	end
 end

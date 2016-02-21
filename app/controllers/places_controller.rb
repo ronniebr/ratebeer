@@ -10,6 +10,8 @@ class PlacesController < ApplicationController
     @places = BeermappingApi.places_in(params[:city])
     if @places.empty?
       redirect_to places_path, notice: "No locations in #{params[:city]}"
+    elsif @places == "no connection to database"  
+      redirect_to places_path, notice: "No connection to database"
     else
       render :index
     end

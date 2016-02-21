@@ -10,6 +10,7 @@ class BeermappingApi
     url = "http://beermapping.com/webservice/loccity/#{key}/"
 
     response = HTTParty.get "#{url}#{ERB::Util.url_encode(city)}"
+    return "no connection to database" if response.parsed_response.exclude?("bmp_locations")
     places = response.parsed_response["bmp_locations"]["location"]
 
     return [] if places.is_a?(Hash) and places['id'].nil?

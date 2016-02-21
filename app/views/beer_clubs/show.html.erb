@@ -27,6 +27,18 @@
   </p>
 
 <% end %>
+<% if current_user and current_user.beer_clubs.exclude?(@beer_club) %>
+ <%= form_for(@membership) do |f| %>
+    <%= f.hidden_field :beer_club_id %>
+    <%= f.submit value:"join the club" %>
+ <% end %>
+ <% end %>
+<% if current_user and current_user.beer_clubs.include?(@beer_club) %>
+    <%= form_for(@membership, method: "delete") do |f| %>
+      <%= f.hidden_field :beer_club_id %>
+      <%= f.submit value: "end the membership" %>
+   <% end %>
+   <% end %>
 
 <%= link_to 'Edit', edit_beer_club_path(@beer_club) %> |
 <%= link_to 'Back', beer_clubs_path %>

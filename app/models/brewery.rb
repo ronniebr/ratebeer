@@ -8,6 +8,8 @@ class Brewery < ActiveRecord::Base
                                     less_than_or_equal_to: 2016,
                                     only_integer: true }
 
+   	scope :active, -> { where active:true }
+  	scope :retired, -> { where active:[nil,false] }
 	def print_report
 	    puts name
 	    puts "established at year #{year}"
